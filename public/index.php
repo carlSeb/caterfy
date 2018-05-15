@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- meta tags, stylesheets  -->
-		<?php include 'files/page_struc/head.php'; ?>
-		<!-- meta tags, stylesheets  -->
-	</head>
+	<!-- head, meta tags, stylesheets  -->
+	<?php include 'files/page_struc/head.php'; ?>
+	<!-- head, meta tags, stylesheets  -->
+
 	<body id="page-top">
 		<!-- Navigation -->
 		<?php include 'files/page_struc/nav.php'; ?>
