@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<!-- head, meta tags, stylesheets  -->
-	<?php include 'files/page_struc/head.php'; ?>
+	<?php include '../includes/layout/head.php'; ?>
 	<!-- head, meta tags, stylesheets  -->
 
 	<body id="page-top">
 		<!-- Navigation -->
-		<?php include 'files/page_struc/nav.php'; ?>
+		<?php include '../includes/layout/nav.php'; ?>
 		<!-- Navigation -->
+    
 		<!-- intro section -->
 		<section class="container">
 			<div class="row">
@@ -15,10 +16,10 @@
 					<img src="img/jumb.png" alt="logo" class="logo img-responsive img-circle">
 				</div>
 				<div class="col-md-6">
-					<div class="text-intro">
-						<h1>Welcome to Caterfy</h1>
+					<div class="text-intro text-center">
+						<h1 class="lobs">Caterfy</h1>
 						<hr class="line-break">
-						<h3>We cater to all kinds of party services such as Anniversaries, Weddings and Debut, Birthday Parties, Children’s Party, Junior & Senior Prom, Bridal Shower, Baby Shower, Baptismal Cocktails, Graduations, Reunions, Seminars, Meeting, Workshops, Pack Meal, Food Tray, & others</h3>
+						<h3 class="text-muted text-justify">We cater to all kinds of party services such as Anniversaries, Weddings and Debut, Birthday Parties, Children’s Party, Junior & Senior Prom, Bridal Shower, Baby Shower, Baptismal Cocktails, Graduations, Reunions, Seminars, Meeting, Workshops, Pack Meal, Food Tray, & others</h3>
 						<div class="page-scroll">
 							<a href="#menu">
 								<button class="intro-btn btn btn-primary btn-lg">
@@ -64,7 +65,7 @@
 		      </div>
 			  </div>
 			</div>
-			<?php include 'files/page_struc/modals.php'; ?>
+			<?php include '../includes/layout/modals.php'; ?>
 		</section>
 		<!-- end gallery section -->
 
@@ -130,7 +131,7 @@
 		<!-- end contact section -->
 
 		<!-- footer and javascript -->
-		<?php include 'files/page_struc/footer.php'; ?>
+		<?php include '../includes/layout/footer.php'; ?>
 		<!-- footer and javascript -->
 	</body>
 </html>

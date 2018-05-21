@@ -1,27 +1,42 @@
 body {
   padding-top: 100px;
   /* font-family: 'Shadows Into Light', cursive; */
-  font-family: 'Pangolin', cursive;
-  background: #f5f6fa;
+  /* font-family: 'Pangolin', cursive; */
+  font-family: 'Montserrat', sans-serif;
+  background: #c8d6e5;
   color:  #2C3E50;
 }
 
 @font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../font/montserat.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster Regular'), local('Lobster-Regular'), url('../font/Lobster.woff2') format('woff2');
+}
+/* @font-face {
   font-family: 'Pangolin';
   font-style: normal;
   font-weight: 400;
   src: local('Pangolin Regular'), local('Pangolin-Regular'), url('../font/pangolin.woff2') format('woff2');
-} 
+}  */
 
 a {
   text-decoration: none;
 }
-@font-face {
+
+/* @font-face {
   font-family: 'Shadows Into Light';
   font-style: normal;
   font-weight: 400;
   src: local('Shadows Into Light'), local('ShadowsIntoLight'), url('../font/shadowsintolight.woff2') format('woff2');
-}
+} */
 
 /* intro logo and text */
 .logo {
@@ -31,7 +46,7 @@ a {
 
 .text-intro {
   padding: 100px 20px;
-  text-align: center;
+  
 }
 
 .line-break {
@@ -48,11 +63,18 @@ a {
   color:  #18BC9C;
   background: transparent;
 }
+
+.lobs {
+  font-family: 'Lobster', cursive;
+}
 /* end of intro logo and text */
 
 /* navbar style */
-.navbar {
-  font-family: 'Pangolin', cursive;
+.navbar-brand {
+  /* font-family: 'Pangolin', cursive; */
+  font-family: 'Lobster', cursive;
+  text-transform: none;
+  font-size: 40px !important;
 }
 
 /* a,
@@ -259,3 +281,15 @@ footer .footer-below {
   border-color: #18BC9C;
 }
 /* end footer */
+
+/* form admin login */
+.formCont{
+  max-width: 300px;
+  margin: 0 auto;   
+  background: #2C3E50;
+  border-radius:12px;
+  color:#f7f7f7;
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+} 
