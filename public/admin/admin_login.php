@@ -57,6 +57,8 @@
         </form>
       </div>
     </div>
+    
+    <!-- footer -->
     <footer class="text-center">
       <div class="footer-above">
         <div class="container">
@@ -98,6 +100,8 @@
         </div>
       </div>
     </footer>
+    <!-- end: footer -->
+
     <!-- javascript files -->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>

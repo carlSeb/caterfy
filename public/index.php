@@ -36,7 +36,7 @@
 		<!-- menu section -->
 		<section id="menu" >
 			<div class="jumbotron">
-				<a href=""><button class="animated pulse infinite">CREATE YOUR OWN PACKAGE</button></a>
+				<a href="main/main.php"><button class="animated pulse infinite">CREATE YOUR OWN PACKAGE</button></a>
 			</div>
 		</section>
 		<!-- end of intro section -->

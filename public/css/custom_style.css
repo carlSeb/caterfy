@@ -287,9 +287,56 @@ footer .footer-below {
   max-width: 300px;
   margin: 0 auto;   
   background: #2C3E50;
-  border-radius:12px;
+  border-radius: 12px;
   color:#f7f7f7;
   padding: 20px;
   margin-top: 100px;
   margin-bottom: 100px;
 } 
+/* end: form admin */
+
+/* menus content */
+.menus-content {
+  margin: 50px;
+  padding: 10px
+}
+
+.menus-content h2 {
+  margin-bottom: 25px;
+}
+
+.thumbnail {
+  max-width: 200px;
+  background: transparent;
+  border: 0;
+  
+}
+
+.thumbnail a {
+  border-radius: 18px;
+  
+}
+
+.thumbnail h3 a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* end: menus content */
+
+/* menu list button */
+#myMenu {
+  display: block; 
+  position: fixed; /* Fixed/sticky position */
+  top: 120px; /* Place the top at the bottom of the page */
+  right: 10px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  outline: none; /* Remove outline */
+  color: #f7f7f7; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 50%; /* Rounded corners */
+  border: 2px #f7f7f7 solid;
+}
+
+/* end: menu list button */
