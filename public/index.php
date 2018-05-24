@@ -46,22 +46,22 @@
 			<div class="container">
 			  <div class="row">
 		      <div class="col-lg-4 col-sm-4 col-xs-12">
-		      	<a title="Caterfy" href="#"><img class="thumbnail img-responsive" src="img/gallery/01.jpg"></a>
+		      	<a title="Caterfy" href="#"><img class="thumbnail img-thumb img-responsive" src="img/gallery/01.jpg"></a>
 		      </div>
 		      <div class="col-lg-4 col-sm-4 col-xs-12">
-		      	<a title="Caterfy" href="#"><img class="thumbnail img-responsive" src="img/gallery/10.jpg"></a>
+		      	<a title="Caterfy" href="#"><img class="thumbnail img-thumb img-responsive" src="img/gallery/10.jpg"></a>
 		      </div>
 		      <div class="col-lg-4 col-sm-4 col-xs-12">
-		      	<a title="Caterfy" href="#"><img class="thumbnail img-responsive" src="img/gallery/18.jpg"></a>
+		      	<a title="Caterfy" href="#"><img class="thumbnail img-thumb img-responsive" src="img/gallery/18.jpg"></a>
 		      </div>
 		      <div class="col-lg-4 col-sm-4 col-xs-12">
-		      	<a title="Caterfy" href="#"><img class="thumbnail img-responsive" src="img/gallery/34.jpg"></a>
+		      	<a title="Caterfy" href="#"><img class="thumbnail img-thumb img-responsive" src="img/gallery/34.jpg"></a>
 		      </div>
 		      <div class="col-lg-4 col-sm-4 col-xs-12">
-		      	<a title="Caterfy" href="#"><img class="thumbnail img-responsive" src="img/gallery/04.jpg"></a>
+		      	<a title="Caterfy" href="#"><img class="thumbnail img-thumb img-responsive" src="img/gallery/04.jpg"></a>
 		      </div>
 		      <div class="col-lg-4 col-sm-4 col-xs-12">
-		      	<a title="Caterfy" href="#"><img class="thumbnail img-responsive" src="img/gallery/07.jpg"></a>
+		      	<a title="Caterfy" href="#"><img class="thumbnail img-thumb img-responsive" src="img/gallery/07.jpg"></a>
 		      </div>
 			  </div>
 			</div>

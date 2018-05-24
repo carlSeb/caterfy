@@ -21,7 +21,7 @@
     <!-- stylesheets -->
 	</head>
 
-  <body id="page-top">
+  <body>
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,14 +29,14 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href="main.php #page-top">Caterfy</a>
+        <a class="navbar-brand" href="main.php">Caterfy</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden">
-            <a href="#page-top"></a>
+            <a></a>
           </li>
           <?php 
             // dynamic categories bar
@@ -46,11 +46,11 @@
             while ($cat_set = mysqli_fetch_assoc($run_categories)) {
               $category_id = $cat_set['id'];
               $category_name = $cat_set['category_name'];
-              echo "<li class=\"page-scroll\">";
-              echo "<a class='active' href='main.php?category_id=". urlencode($category_id)."'>";
-              echo htmlentities($category_name);
-              echo "</a>";
-              echo "</li>";
+              echo "<li class=\"page-scroll\">
+                      <a href='main.php?category_id=". urlencode($category_id)."'>"
+                        .htmlentities($category_name)."
+                      </a>
+                    </li>";
             }
           ?>
         </ul>
@@ -61,15 +61,15 @@
   </nav>
   
   <!-- menu list button -->
-  <a href='cart_list.php' id="myMenu" class="btn btn-lg btn-primary animated infinite pulse" title="Your menu list">
-    <span class="fa fa-2x fa-list"></span>
+  <a href='cart.php' id="myMenu" class="btn btn-lg btn-primary animated infinite pulse" title="Your menu list">
+    <span class="fa fa-2x fa-cutlery"></span>
   </a>
   <!-- end: menu list button -->
   
   <!-- main content -->
   <main class="container-fluid menus-content">
     <section class="row">
-    <?php include '../main/menus_content.php';?>
+    <?php include 'menus_content.php';?>
     </section>
   </main>
   <!-- end: main content -->  

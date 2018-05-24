@@ -14,18 +14,15 @@
       $menu_price = $menus_set['menu_price'];
       
       echo "<div class='col-xs-6 col-sm-3 col-lg-3 col-md-3'>
-              <div class='thumbnail'>
-                <a href='cart_list.php?menu=".urlencode($menu_id)."'>
-                  <img src='../admin/menu_images/".htmlentities($menu_image)."' alt='$menu_name' class='img-responsive img-rounded'>
-                </a>
+              <div class='thumbnail menus-thumbnail'>
+                <img src='../admin/menu_images/".htmlentities($menu_image)."' alt='$menu_name' class='img-responsive img-rounded'>
                 <div class='caption text-center'>
-                  <h3>
-                    <a href='cart_list.php?menu=".urlencode($menu_id)."'>".htmlentities($menu_name)."</a>
-                  </h3>
-                  <h3> &#8369;{$menu_price}</h3>
-                  <a href='cart_list.php?menu=".urlencode($menu_id)."' class='btn btn-block btn-primary'>
-                    Add to menu
-                  </a>
+                  <h3>".htmlentities($menu_name)."</h3>
+                  <h3> &#8369;". number_format($menu_price, 2)."</h3>
+                  <form action='cart.php' method='POST' enctype='multipart/form-data'>
+                      <input type='hidden' name='menu_id' value='".$menu_id."'>
+                      <button type='submit' name='submit' class='btn btn-block btn-primary'> Add to menu</button>
+                  </form>
                 </div>
               </div>
             </div>";
@@ -59,18 +56,15 @@
         $menu_price = $query_set['menu_price'];
 
         echo "<div class='col-xs-6 col-sm-3 col-lg-3 col-md-3'>
-              <div class='thumbnail'>
-                <a href='cart_list.php?menu=".urlencode($menu_id)."'>
-                  <img src='../admin/menu_images/".htmlentities($menu_image)."' alt='$menu_name' class='img-responsive img-rounded'>
-                </a>
+              <div class='thumbnail menus-thumbnail'>
+                <img src='../admin/menu_images/".htmlentities($menu_image)."' alt='$menu_name' class='img-responsive img-rounded'>
                 <div class='caption text-center'>
-                  <h3>
-                    <a href='cart_list.php?menu=".urlencode($menu_id)."'>".htmlentities($menu_name)."</a>
-                  </h3>
-                  <h3> &#8369;{$menu_price}</h3>
-                  <a href='cart_list.php?menu=".urlencode($menu_id)."' class='btn btn-block btn-primary'>
-                    Add to menu
-                  </a>
+                  <h3>".htmlentities($menu_name)."</h3>
+                  <h3> &#8369;". number_format($menu_price, 2)."</h3>
+                  <form action='cart.php' method='POST' enctype='multipart/form-data'>
+                      <input type='hidden' name='menu_id' value='".$menu_id."'>
+                      <button type='submit' name='submit' class='btn btn-block btn-primary'> Add to menu</button>
+                  </form>
                 </div>
               </div>
             </div>";

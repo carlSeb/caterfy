@@ -305,19 +305,20 @@ footer .footer-below {
   margin-bottom: 25px;
 }
 
-.thumbnail {
+.menus-thumbnail {
   max-width: 200px;
   background: transparent;
   border: 0;
+  margin-bottom: 10px;
   
 }
 
-.thumbnail a {
-  border-radius: 18px;
+.menus-thumbnail form button {
+  border-radius: 24px;
   
 }
 
-.thumbnail h3 a {
+.menus-thumbnail h3 a {
   color: #333;
   text-decoration: none;
 }
@@ -340,3 +341,27 @@ footer .footer-below {
 }
 
 /* end: menu list button */
+
+/* table style @ list */
+.table-list {
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>thead>tr>th {
+  border: none;
+}
+
+.cart-btn {
+  margin: 25px 5px;
+}
+/* end: table style @ list; */

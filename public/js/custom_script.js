@@ -33,8 +33,8 @@ sr.reveal('.about-text', {
 
 sr.reveal('#contact', {
   duration: 2000,
-  origin: 'right',
-  distance: '300px'
+  origin: 'top',
+  distance: '100px'
 });
 /*sr.reveal('.navbar', {
 	duration: 2000,
@@ -94,7 +94,7 @@ sr.reveal('#about', {
     });
 
     // for modals 
-    $('.thumbnail').click(function(e){
+    $('.img-thumb').click(function(e){
         e.preventDefault();
         $('.modal-body').empty();
       let title = $(this).parent('a').attr("title");
