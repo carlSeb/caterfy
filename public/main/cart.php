@@ -111,7 +111,7 @@
         $cartOutput .="<tr>";
         $cartOutput .= "<td>". $product_name ."</td>";
         $cartOutput .= "<td>";
-        $cartOutput .= "<img src='../admin/menu_images/$product_image' width='80px' height='80px'>";
+        $cartOutput .= "<img src='../admin/menu_images/$product_image' width='80px' height='80px' class='img-rounded'>";
         $cartOutput .= "</td>";
         $cartOutput .= "<td>&#8369;". number_format($price, 2) ."</td>";
         $cartOutput .= "<td>Servings:";
@@ -154,7 +154,7 @@
     }
     /* setlocale(LC_MONETARY,"en_US");
     $cartTotal = money_format('%10.2n', $cartTotal); */
-    $cartTotal = "Total: <span class='label label-default label-success'> &#8369;  ".number_format($cartTotal, 2)."</span>";
+    $cartTotal = "Total Amount: <span class='label label-default label-success'> &#8369;  ".number_format($cartTotal, 2)."</span>";
 }
 ?>
 
@@ -194,15 +194,15 @@
           </li>
           <?php 
             // dynamic categories bar
-            $query_categories = "SELECT * FROM categories";
-            $run_categories = mysqli_query($connection, $query_categories);
-            confirm_query($run_categories);
-            while ($cat_set = mysqli_fetch_assoc($run_categories)) {
-              $category_id = $cat_set['id'];
-              $category_name = $cat_set['category_name'];
+            $query_stores = "SELECT * FROM stores";
+            $run_stores = mysqli_query($connection, $query_stores);
+            confirm_query($run_stores);
+            while ($stores_set = mysqli_fetch_assoc($run_stores)) {
+              $store_id = $stores_set['id'];
+              $store_name = $stores_set['store_name'];
               echo "<li class=\"page-scroll\">
-                      <a href='main.php?category_id=". urlencode($category_id)."'>"
-                        .htmlentities($category_name)."
+                      <a href='stores_content.php?store_id=".urlencode($store_id)."'>"
+                        .htmlentities($store_name)."
                       </a>
                     </li>";
             }
@@ -216,7 +216,7 @@
 
   <main class="container menus-content">
     <section class="row">
-      <div class='col-sm-10 col-md-offset-2 col-md-8'>
+      <div class='col-md-offset-2 col-md-8'>
         <!--show the values in the cart-->
         <div class="cart-btn">
           <h2>Your list</h2>
@@ -224,7 +224,7 @@
           <span class='fa fa-trash'></span>
           </a>
         
-          <button data-toggle='modal' data-target='#shoeboxModal' class='btn btn-primary btn-lg' title="Buy Me"> CHECK OUT</button>
+          <a href="cart.php?checkout_form" class='btn btn-primary btn-lg' title="Buy Me"> CHECK OUT</a>
         </div>
         
         <table class="table table-responsive animated fadeIn table-list">
@@ -232,11 +232,20 @@
             <?php echo $cartOutput;?>
           </tbody>
         </table>
-        <h3><?php echo $cartTotal; ?></h3>
+        <h3 class="pull-right"><?php echo $cartTotal; ?></h3>
         <!-- end: show the values in the cart-->
       </div>
     </section>
   </main>
+  <!-- checkout form -->
+  <section class="container-fluid">
+    <?php 
+      if (isset($_GET['checkout_form'])) {
+        include 'checkout_form.php';
+      } 
+    ?>
+  </section>
+  <!-- end: checkoutform -->
 
   <!-- footer -->
   <footer class="text-center">

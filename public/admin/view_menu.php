@@ -19,6 +19,7 @@
         <th>Menu ID</th>
         <th>Image</th>
         <th>Category</th>
+        <th>Store Name</th>
         <th>Menu Name</th>
         <th>Menu Price</th>
         <th colspan="2"></th>
@@ -30,6 +31,7 @@
         while ($result_set = mysqli_fetch_assoc($result)) {
           $menu_id = $result_set['id'];
           $menu_category_id = $result_set['category_id'];
+          $menu_store_id = $result_set['store_id'];
           $menu_image = $result_set['menu_image'];
           $menu_name = $result_set['menu_name'];
           $menu_price = $result_set['menu_price'];
@@ -52,8 +54,20 @@
         <?php
           } // end: category name query
         ?>
+        <?php 
+          // store name query
+          $get_store_name = "SELECT * FROM stores WHERE id = {$menu_store_id}";
+          $store_result = mysqli_query($connection, $get_store_name);
+          confirm_query($store_result);
+          while ($store_set = mysqli_fetch_assoc($store_result)) {
+            $store_name = $store_set['store_name'];
+          ?>
+            <td><?php echo htmlentities($store_name); ?></td>
+        <?php 
+          } // end: store name query
+        ?>
         <td><?php echo htmlentities($menu_name); ?></td>
-        <td> &#8369; <?php echo htmlentities($menu_price); ?></td>
+        <td> &#8369; <?php echo number_format($menu_price, 2); ?></td>
         <td>
           <a href="index.php?edit_menu=<?php echo urlencode($menu_id); ?>" title="Edit" class="btn btn-primary">
             <span class="fa fa-edit"></span>

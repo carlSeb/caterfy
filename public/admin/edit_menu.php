@@ -18,6 +18,7 @@
       while ($edit_set = mysqli_fetch_assoc($edit_result)) {
         $menu_id = $edit_set['id'];
         $menu_categ_id = $edit_set['category_id'];
+        $menu_store_id = $edit_set['store_id'];
         $menu_name = $edit_set['menu_name'];
         $menu_image = $edit_set['menu_image'];
         $menu_price = $edit_set['menu_price'];
@@ -31,14 +32,14 @@
       <form class="addInven form-horizontal" action="" method="POST" enctype="multipart/form-data">
         <!--CATEGORY NAME-->
         <div class="form-group">
-          <label class="col-sm-4 control-label">Menu Name</label>
+          <label class="col-sm-4 control-label">Menu Name:</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" name="menu_name" placeholder="Menu Name" required autofocus value="<?php echo htmlentities($menu_name); ?>">
           </div>
         </div>
         <!--CATEGORY-->
         <div class="form-group">
-          <label class="col-sm-4 control-label"> Select Category </label>
+          <label class="col-sm-4 control-label"> Select Category: </label>
           <div class="col-sm-5">
             <select name="cat" required>
               <?php
@@ -71,18 +72,53 @@
             </select>
           </div>
         </div>
+        <!-- Store Name -->
+        <div class="form-group">
+          <label class="col-sm-4 control-label"> Store Name: </label>
+          <div class="col-sm-5">
+            <select name="store_id" required>
+              <?php
+                // to show the user selected store
+                $get_stores = "SELECT * FROM ";
+                $get_stores .= "stores WHERE ";
+                $get_stores .="id = {$menu_store_id}";
+                $run_stores = mysqli_query($connection, $get_stores);
+                confirm_query($run_stores);
+                
+                while ($stores_row = mysqli_fetch_assoc($run_stores)) {
+                  $store_id = $stores_row['id'];
+                  $store_title = $stores_row['store_name'];
+                  echo "<option value=\"$store_id\">{$store_title}</option>";
+                }
+
+                // shows the available stores for update
+                $stores_query = "SELECT * FROM stores";
+                $stores_result = mysqli_query($connection, $stores_query);
+                confirm_query($stores_result);
+
+                while ($stores_assoc = mysqli_fetch_assoc($stores_result)) {
+                  $store_id_assoc = $stores_assoc['id'];
+                  $store_title_assoc = $stores_assoc['store_name'];
+                  echo "<option value=\"$store_id_assoc\">";
+                  echo htmlentities($store_title_assoc);
+                  echo "</option>";
+                }
+              ?>
+            </select>
+          </div>
+        </div>
         <!-- PRICE -->
         <div class="form-group">
-          <label class="col-sm-4 control-label">Menu Price</label>
+          <label class="col-sm-4 control-label">Menu Price:</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" name="menu_price" placeholder="Menu Price" required autofocus value="<?php echo htmlentities($menu_price); ?>">
+            <input type="text" class="form-control" name="menu_price" placeholder="Menu Price" required autofocus value="<?php echo number_format($menu_price, 2); ?>">
           </div>
         </div>
         <!-- IMAGE -->
         <div class="form-group">
-          <label class="col-sm-4 control-label">Menu Image</label>
+          <label class="col-sm-4 control-label">Menu Image:</label>
           <div class="col-sm-5">
-            <input type="file" class="form-control" name="menu_image" placeholder="Menu Image" autofocus>
+            <input type="file" class="form-control" name="menu_image" placeholder="Menu Image" autofocus required>
             <br>
             <img src="menu_images/<?php echo htmlentities($menu_image); ?>" width = "150px" height ="150px" class="img-rounded">
           </div>
@@ -104,18 +140,20 @@
     if (isset($_POST['update'])) {
       $update_id = $menu_id;
       $menu_name = htmlentities(trim($_POST['menu_name']));
-      $menu_category_id = htmlentities(trim($_POST['cat']));
+      $menu_category_id = (int) htmlentities(trim($_POST['cat']));
+      $stores_id = (int) htmlentities(trim($_POST['store_id']));
       $menu_price = (int) htmlentities(trim($_POST['menu_price']));
       $menu_image = htmlentities(trim($_FILES['menu_image']['name']));
       $menu_image_tmp = htmlentities(trim($_FILES['menu_image']['tmp_name']));
 
       // validations
-      if (!has_presence($menu_name) || !has_presence($menu_category_id) || !has_presence($menu_price) || !has_presence($menu_image)) {
+      if (!$menu_name|| !$menu_category_id || !$stores_id || !$menu_price || !$menu_image) {
         $_SESSION['errors'] = "Please fill in all the fields.";
         echo "<script>window.open('index.php?edit_menu={$update_id}', '_self')</script>"; 
-      } else {
+      } else { 
         $safe_menu_name = mysqli_real_escape_string($connection, $menu_name);
         $safe_cat_id = mysqli_real_escape_string($connection, $menu_category_id);
+        $safe_store_id = mysqli_real_escape_string($connection, $stores_id);
         $safe_price = mysqli_real_escape_string($connection, $menu_price);
         $safe_image = mysqli_real_escape_string($connection, $menu_image);
 
@@ -123,6 +161,7 @@
 
         $update_menu = "UPDATE menus SET ";
         $update_menu .= "category_id = {$safe_cat_id}, ";
+        $update_menu .= "store_id = {$safe_store_id}, ";
         $update_menu .= "menu_name = '{$safe_menu_name}', ";
         $update_menu .= "menu_image = '{$safe_image}', ";
         $update_menu .= "menu_price = {$safe_price} ";

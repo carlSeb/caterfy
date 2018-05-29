@@ -13,7 +13,7 @@
 		<section class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<img src="img/jumb.png" alt="logo" class="logo img-responsive img-circle">
+					<img src="img/logo.png" alt="logo" class="logo img-responsive img-circle">
 				</div>
 				<div class="col-md-6">
 					<div class="text-intro text-center">

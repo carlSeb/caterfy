@@ -9,9 +9,6 @@ body {
 }
 
 
-a {
-  color: #f7f7f7;
-}
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -38,6 +35,7 @@ a {
 .sidebar {
   display: none;
 }
+
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
@@ -80,6 +78,7 @@ a {
 .main {
   padding: 20px;
 }
+
 @media (min-width: 768px) {
   .main {
     padding-right: 40px;
@@ -95,3 +94,36 @@ table th {
   text-align: center;
 }
 
+table {
+  font-size: 18px;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+  
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #2C3E50;
+}
+
+.placeholder img:hover {
+  border: 2px solid #18BC9C;
+}
+
+a {
+  color: #f7f7f7;
+  text-decoration: none;
+}

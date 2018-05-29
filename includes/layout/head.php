@@ -10,5 +10,6 @@
 		<link rel="stylesheet" type="text/css" href="fa/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/animate.css">
 		<link rel="stylesheet" type="text/css" href="css/custom_style.css">
+		<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 	<!-- stylesheets -->
 	</head>

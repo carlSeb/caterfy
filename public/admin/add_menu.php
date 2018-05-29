@@ -11,26 +11,28 @@
     if (isset($_POST['submit'])) {
       $menu_name = htmlentities(trim($_POST['menu_name']));
       $menu_category_id = htmlentities(trim($_POST['cat']));
+      $menu_store_id = htmlentities(trim($_POST['store']));
       $menu_price = (int) htmlentities(trim($_POST['menu_price']));
       $menu_image = htmlentities(trim($_FILES['menu_image']['name']));
       $menu_image_tmp = htmlentities(trim($_FILES['menu_image']['tmp_name']));
 
-      if (!has_presence($menu_name) || !has_presence($menu_category_id) || !has_presence($menu_price) || !has_presence($menu_image)) {
+      if (!has_presence($menu_name) || !has_presence($menu_category_id) || !has_presence($menu_price) || !has_presence($menu_store_id) || !has_presence($menu_image)) {
         $_SESSION['errors'] = "Please fill in all the fields";
         redirect_to("index.php?add_menu");
         
       } else {
         $safe_menu_name = mysqli_real_escape_string($connection, $menu_name);
         $safe_cat_id = mysqli_real_escape_string($connection, $menu_category_id);
+        $safe_store_id = mysqli_real_escape_string($connection, $menu_store_id);
         $safe_price = mysqli_real_escape_string($connection, $menu_price);
         $safe_image = mysqli_real_escape_string($connection, $menu_image);
 
         move_uploaded_file($menu_image_tmp, "menu_images/{$safe_image}");
 
         $insert_menu = "INSERT INTO menus ( ";
-        $insert_menu .= "category_id, menu_name, menu_image, menu_price ";
+        $insert_menu .= "category_id, store_id, menu_name, menu_image, menu_price ";
         $insert_menu .= ")VALUES ( ";
-        $insert_menu .= "{$safe_cat_id}, '{$safe_menu_name}', '{$safe_image}', {$safe_price})";
+        $insert_menu .= "{$safe_cat_id}, {$safe_store_id}, '{$safe_menu_name}', '{$safe_image}', {$safe_price})";
         $result = mysqli_query($connection, $insert_menu);
         confirm_query($result);
 
@@ -51,14 +53,14 @@
   <form class="addInven form-horizontal" action="index.php?add_menu" method="POST" enctype="multipart/form-data">
     <!--PRODUCT NAME-->
     <div class="form-group">
-      <label class="col-sm-4 control-label">Menu Name</label>
+      <label class="col-sm-4 control-label">Menu Name:</label>
       <div class="col-sm-5">
         <input type="text" class="form-control" name="menu_name" placeholder="Menu Name" required autofocus>
       </div>
     </div>
     <!--CATEGORY-->
     <div class="form-group">
-      <label class="col-sm-4 control-label"> Select Category </label>
+      <label class="col-sm-4 control-label"> Select Category: </label>
       <div class="col-sm-5">
         <select name="cat" required>
           <option value="null">Select a Category</option>
@@ -77,16 +79,37 @@
         </select>
       </div>
     </div>
+    <!-- STORE NAME -->
+    <div class="form-group">
+      <label class="col-sm-4 control-label"> Store Name: </label>
+      <div class="col-sm-5">
+        <select name="store" required>
+          <option value="null">Select a Store</option>
+            <?php
+              //show value from stores table
+              $get_store = "SELECT * FROM stores";
+              $run_store = mysqli_query($connection, $get_store);
+              confirm_query($run_store);
+
+              while($store_row = mysqli_fetch_assoc($run_store)) {
+                $store_id = $store_row['id'];
+                $store_title = $store_row['store_name'];
+                echo "<option value=\"$store_id\">{$store_title}</option>";
+              }
+            ?>
+        </select>
+      </div>
+    </div>
     <!-- PRICE -->
     <div class="form-group">
-      <label class="col-sm-4 control-label">Menu Price</label>
+      <label class="col-sm-4 control-label">Menu Price:</label>
       <div class="col-sm-5">
         <input type="text" class="form-control" name="menu_price" placeholder="Menu Price" required autofocus>
       </div>
     </div>
     <!-- IMAGE -->
     <div class="form-group">
-      <label class="col-sm-4 control-label">Menu Image</label>
+      <label class="col-sm-4 control-label">Menu Image:</label>
       <div class="col-sm-5">
         <input type="file" class="form-control" name="menu_image" placeholder="Menu Image" required autofocus>
       </div>
