@@ -150,13 +150,6 @@
                 </div>
 
                 <div class="col-xs-6 col-sm-3 placeholder">
-                  <a href="index.php?add_category">
-                    <img src="../admin/menu_images/placeholder.png" width="200" height="200" class="img-responsive" alt="Add a new category">
-                  </a>
-                  <h4>Add a new category</h4>
-                </div>
-
-                <div class="col-xs-6 col-sm-3 placeholder">
                   <a href="index.php?view_menu">
                     <img src="./admin_img/view_menu.png" width="200" height="200" class="img-responsive" alt="View menus">
                   </a>
@@ -164,22 +157,30 @@
                 </div>
 
                 <div class="col-xs-6 col-sm-3 placeholder">
+                  <a href="index.php?add_category">
+                    <img src="admin_img/add_categ.png" width="200" height="200" class="img-responsive" alt="Add a new category">
+                  </a>
+                  <h4>Add a new category</h4>
+                </div>
+
+
+                <div class="col-xs-6 col-sm-3 placeholder">
                   <a href="index.php?view_category">
-                    <img src="../admin/menu_images/placeholder.png" width="200" height="200" class="img-responsive" alt="View categories">
+                    <img src='./admin_img/view_categ.png' width="200" height="200" class="img-responsive" alt="View categories">
                   </a>     
                   <h4>View categories</h4>
                 </div>
 
-                 <div class="col-xs-6 col-sm-3 placeholder">
+                <div class="col-xs-6 col-sm-3 placeholder">
                   <a href="index.php?add_store">
-                    <img src="../admin/menu_images/placeholder.png" width="200" height="200" class="img-responsive" alt="Add a new store">
+                    <img src="./admin_img/add_shop.png" width="200" height="200" class="img-responsive" alt="Add a new store">
                   </a>     
                   <h4>Add a new store</h4>
                 </div>
 
-                 <div class="col-xs-6 col-sm-3 placeholder">
+                <div class="col-xs-6 col-sm-3 placeholder">
                   <a href="index.php?view_store">
-                    <img src="../admin/menu_images/placeholder.png" width="200" height="200" class="img-responsive" alt="View stores">
+                    <img src="./admin_img/view_shop.png" width="200" height="200" class="img-responsive" alt="View stores">
                   </a>     
                   <h4>View stores</h4>
                 </div>
