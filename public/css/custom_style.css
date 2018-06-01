@@ -365,3 +365,18 @@ footer .footer-below {
   margin: 25px 5px;
 }
 /* end: table style @ list; */
+
+/* checkout area */
+.checkout-area {
+  margin: 100px 10px;
+}
+
+.checkout-header {
+  background: #2C3E50;
+  padding: 10px 5px;
+  margin-bottom: 25px;
+  color: #f7f7f7;
+  text-align: center;
+  border-radius: 8px;
+}
+/* end: checkout area */

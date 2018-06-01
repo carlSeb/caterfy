@@ -6,9 +6,9 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <?php include '../../includes/layout/main_layout/main_head.php'?>
+  <?php include '../../includes/layout/main_layout/main_head.php'; ?>
 <body>
-  <?php include '../../includes/layout/main_layout/main_nav.php' ?>
+  <?php include '../../includes/layout/main_layout/main_nav.php'; ?>
 
   <!-- main content -->
   <main class="container menus-content">
@@ -70,8 +70,8 @@
                     <h3>".htmlentities($menu_name)."</h3>
                     <h3> &#8369;". number_format($menu_price, 2)."</h3>
                     <form action='cart.php' method='POST' enctype='multipart/form-data'>
-                        <input type='hidden' name='menu_id' value='".$menu_id."'>
-                        <button type='submit' name='submit' class='btn btn-block btn-primary'> Add to menu</button>
+                      <input type='hidden' name='menu_id' value='".$menu_id."'>
+                      <button type='submit' name='submit' class='btn btn-block btn-primary'> Add to menu</button>
                     </form>
                   </div>
                 </div>
@@ -135,8 +135,8 @@
                         <h3>".htmlentities($menu_name)."</h3>
                         <h3> &#8369;". number_format($menu_price, 2)."</h3>
                         <form action='cart.php' method='POST' enctype='multipart/form-data'>
-                            <input type='hidden' name='menu_id' value='".$menu_id."'>
-                            <button type='submit' name='submit' class='btn btn-block btn-primary'> Add to menu</button>
+                          <input type='hidden' name='menu_id' value='".$menu_id."'>
+                          <button type='submit' name='submit' class='btn btn-block btn-primary'> Add to menu</button>
                         </form>
                       </div>
                     </div>
@@ -154,7 +154,6 @@
           
       }
     
-
     // close database connection
     if (isset($connection)) {
       mysqli_close($connection);
@@ -164,6 +163,6 @@
   </main>
   <!-- end: main content -->  
 
-  <?php include '../../includes/layout/main_layout/main_footer.php' ?>
+  <?php include '../../includes/layout/main_layout/main_footer.php'; ?>
 </body>
 </html>

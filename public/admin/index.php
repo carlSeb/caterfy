@@ -40,8 +40,8 @@
               </a>
             </li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+          <form class="navbar-form navbar-right" method="POST">
+            <input type="text" class="form-control" id="search_text" name="search_text" placeholder="Search...">
           </form>
         </div>
       </div>
@@ -91,6 +91,11 @@
           <h1 class="page-header">Dashboard
             <small class="text-muted" style="font-size: 12px"><?php echo date('d-M-Y'); ?></small>
           </h1> 
+
+          <!-- search results area-->
+          <div id="search-result">
+          
+          </div>
           <?php  
             // show message or errors
             echo message();
@@ -191,6 +196,7 @@
   <?php include '../../includes/layout/admin_layout/admin_footer.php'; ?>
   </body>
 </html>
+
 <?php  
   } //end: admin must login first before accessing the page
   

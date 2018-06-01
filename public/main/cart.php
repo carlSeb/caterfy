@@ -82,9 +82,6 @@
     //render the cart for the user to view
     $cartOutput = "";
     $cartTotal = NULL;
-    $checkOutForm ="";
-    $checkOutFormBtn = "";
-    $echoPurchase = "";
                     
     if(!isset($_SESSION['cart_array']) OR count($_SESSION['cart_array']) < 1) {
       $cartOutput = "<div class='alert alert-warning alert-dismissible text-center' role='alert'>
@@ -135,45 +132,20 @@
         $cartOutput .= '</form>';
         $cartOutput .= '</td>';
         $cartOutput .= "</tr>";
-        //for checkout form , get product purchased
-        $checkOutForm .= '<input type="hidden" name="purchase_id" value="'.$item_id.'">';
-        $checkOutForm .= '<input type="hidden" name="product_name" value="'.$product_name.'">';
-        $checkOutForm .= '<input type="hidden" name="product_quantity" value="'.$each_item['quantity'].'">';
-        $checkOutForm .= '<input type="hidden" name="product_price" value="'.$price.'">';
-        $checkOutForm .= '<input type="hidden" name="product_priceTotal" value="'.$priceTotal.'">';
-        $checkOutForm .= '<input type="hidden" name="product_cartTotal" value="'.$cartTotal.'">';
-
-        $echoPurchase .= '<tr>';
-        $echoPurchase .= '<td>'.$product_name.'</td>';
-        $echoPurchase .= '<td>'.$each_item['quantity'].'</td>';
-        $echoPurchase .= '<td>'.$price.'</td>';
-        $echoPurchase .= '<td>'.$priceTotal.'</td>';
-        $echoPurchase .= '</tr>';
         
         $i++;
     }
     /* setlocale(LC_MONETARY,"en_US");
     $cartTotal = money_format('%10.2n', $cartTotal); */
     $cartTotal = "Total Amount: <span class='label label-default label-success'> &#8369;  ".number_format($cartTotal, 2)."</span>";
-}
+  }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Caterfy</title>
-    
-    <!-- stylesheets -->
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../fa/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/animate.css">
-    <link rel="stylesheet" type="text/css" href="../css/custom_style.css">
-    <!-- stylesheets -->
-  </head>
+  <!-- head -->
+  <?php include '../../includes/layout/main_layout/main_head.php'?>
+  <!-- end: head -->
 
   <body>
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -220,11 +192,12 @@
         <!--show the values in the cart-->
         <div class="cart-btn">
           <h2>Your list</h2>
-          <a href="cart.php?cmd=emptycart" class='btn btn-danger btn-lg pull-right' onclick="return confirm('Are you sure you want to empty your cart?')" title="Empty your list">
+          <a href="cart.php?cmd=emptycart" class='btn btn-danger pull-right' onclick="return confirm('Are you sure you want to empty your cart?')" title="Empty your list">
           <span class='fa fa-trash'></span>
           </a>
         
-          <a href="cart.php?checkout_form" class='btn btn-primary btn-lg' title="Buy Me"> CHECK OUT</a>
+          <a href="<?php echo !isset($_SESSION['cart_array']) ? '' :  'checkout_form.php'; ?>" class='btn btn-primary' title="Buy Me"> CHECK OUT</a>
+
         </div>
         
         <table class="table table-responsive animated fadeIn table-list">
@@ -237,67 +210,9 @@
       </div>
     </section>
   </main>
-  <!-- checkout form -->
-  <section class="container-fluid">
-    <?php 
-      if (isset($_GET['checkout_form'])) {
-        include 'checkout_form.php';
-      } 
-    ?>
-  </section>
-  <!-- end: checkoutform -->
 
   <!-- footer -->
-  <footer class="text-center">
-    <div class="footer-above">
-      <div class="container">
-        <div class="row">
-          <div class="footer-col col-md-4">
-            <h3>Location</h3>
-            <p>ACLC Campus
-            <br>Real Street, Tacloban City</p>
-          </div>
-          <div class="footer-col col-md-4">
-            <h3>Connect with us</h3>
-            <ul class="list-inline">
-              <li>
-                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-              </li>
-            </ul>
-          </div>
-            <div class="footer-col col-md-4">
-              <h3>Caterfy</h3>
-              <p>Email: caterfy@gmail.com</p>
-              <p>Contact Number: 09159874954</p>
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-below">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            Copyright &copy; Caterfy <?php echo date('Y'); ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <?php include '../../includes/layout/main_layout/main_footer.php'; ?>
   <!-- end: footer -->
-
-  <!-- javascript files -->
-  <script src="../js/jquery-3.2.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/jquery-easing.min.js"></script>
-  <script src="../js/scrollreveal.min.js"></script>
-  <script src="../js/custom_script.js"></script>
-  <!-- javascript files -->
-
   </body>
 </html>

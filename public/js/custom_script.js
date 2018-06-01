@@ -103,4 +103,21 @@ sr.reveal('#about', {
       $('#myModal').modal({show:true});
     });
 
+    // search form at admin panel
+    $('#search_text').keyup(function(){
+      let txt = $(this).val();
+      if (txt != '') {
+        $.ajax({
+          url: "fetch.php",
+          method: "POST",
+          data: {search:txt},
+          dataType: "text",
+          success: function(data) {
+            $('#search-result').html(data);
+          }
+        });
+      } else {
+        $('#search-result').html('');
+      }
+    });
 });
